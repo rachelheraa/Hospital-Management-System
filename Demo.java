@@ -43,52 +43,73 @@ public static void main (String args[]) {
         switch (choice) {
             // to add new doctor
             case 1: {
-                Scanner s = new Scanner(System.in);
-                System.out.println("Enter Name: ");
-                String name = s.nextLine();//this method returns the line that was skipped
-                System.out.println("Enter Specialty: ");
-                String specialty = s.nextLine();//
-                h1.addDoctor(new Doctor(name, specialty));
+                try {
+                    Scanner s = new Scanner(System.in);
+                    System.out.println("Enter Name: ");
+                    String name = s.nextLine();//this method returns the line that was skipped
+                    System.out.println("Enter Specialty: ");
+                    String specialty = s.nextLine();//
+                    h1.addDoctor(new Doctor(name, specialty));
+                }
+                catch (Exception e){
+                    e.printStackTrace();
+                }
                 break;
             }
             //to show doctors
             case 2: {
-                h1.showDoctors();
+                try{
+                    h1.showDoctors();}
+                catch(Exception e){
+                    e.printStackTrace();
+                }
                 break;
             }
             //to add new patient
             case 3: {
-                Scanner s = new Scanner(System.in);
-                System.out.println("Enter Name: ");
-                String name = s.nextLine();
-                System.out.println("Enter Age: ");
-                int age = s.nextInt();//Scans the next token of the input as an in
-                s.nextLine();
-                System.out.println("Enter Gender: ");
-                String gender = s.nextLine();
-                System.out.println("Enter Disease: ");
-                String disease = s.nextLine();
-                h1.addPatient(new Patient(name, age, gender, disease));
+                try {
+                    Scanner s = new Scanner(System.in);
+                    System.out.println("Enter Name: ");
+                    String name = s.nextLine();
+                    System.out.println("Enter Age: ");
+                    int age = s.nextInt();//Scans the next token of the input as an in
+                    s.nextLine();
+                    System.out.println("Enter Gender: ");
+                    String gender = s.nextLine();
+                    System.out.println("Enter Disease: ");
+                    String disease = s.nextLine();
+                    h1.addPatient(new Patient(name, age, gender, disease));}
+                catch(Exception e){
+                    e.printStackTrace();
+                }
                 break;
             }
 
             case 4: {
-                h1.showPatients();
+                try{
+                    h1.showPatients();}
+                catch(Exception e){
+                    e.printStackTrace();
+                }
                 break;
             }
             //to assign doctor to patients
             case 5: {
-                Scanner s = new Scanner(System.in);
-                System.out.println("Choose a doctor");
-                h1.showDoctors();
-                int doctorid = s.nextInt();
-                s.nextLine();
-                h1.showPatients();
-                int patientid = s.nextInt();
-                s.nextLine();
-                h1.assignPatientToDoctor(doctorid, patientid);
-                System.out.println("Assigned successfully.");
-                break;
+                try{
+                    Scanner s = new Scanner(System.in);
+                    System.out.println("Choose a doctor");
+                    h1.showDoctors();
+                    int doctorid = s.nextInt();
+                    s.nextLine();
+                    h1.showPatients();
+                    int patientid = s.nextInt();
+                    s.nextLine();
+                    h1.assignPatientToDoctor(doctorid, patientid);
+                    System.out.println("Assigned successfully.");}
+                catch(Exception e){
+                    e.printStackTrace();
+                }
+                    break;
             }
             //to show doctors and their patients
             case 6: {
@@ -107,7 +128,8 @@ public static void main (String args[]) {
                 break;
             }
             case 7:{
-                System.out.println("Thank You");
+                System.out.println("~Thank You~");
+                System.exit(0);
             }
 
         }
